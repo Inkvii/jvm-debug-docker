@@ -12,6 +12,7 @@ Note that there are multiple branches.
 
 - master - using embedded tomcat
 - tomcat - using tomcat docker to deploy .war
+- maven-tomcat - using multi-container approach to build source using maven and deploying to tomcat
 
 ## How to attach debugger
 
