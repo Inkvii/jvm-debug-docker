@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  docker-java:
+    container_name: docker-java
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8020:8080"
+      - "9999:9999"
+
+volumes:
+  my-data:
+    name: my-data
+    external: true
