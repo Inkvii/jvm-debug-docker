@@ -1,4 +1,5 @@
-FROM maven:3.6.0-jdk-11-slim
+#FROM maven:3.6.0-jdk-11-slim
+FROM maven:3.6.0-alpine
 
 WORKDIR /src
 COPY ./src .

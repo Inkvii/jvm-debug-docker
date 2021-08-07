@@ -7,8 +7,7 @@ services:
       dockerfile: ./docker/maven-build/Dockerfile
     volumes:
       - my-data:/src/dist
-    ports:
-      - "8010:8080"
+      - maven-repo:/root/.m2
 
   tomcat-server:
     container_name: tomcat-server
@@ -26,4 +25,6 @@ services:
 volumes:
   my-data:
     name: my-data
-    external: true
+  maven-repo:
+    name: maven-repo
+
