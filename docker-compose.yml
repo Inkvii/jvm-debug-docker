@@ -1,13 +1,27 @@
 version: "3.8"
 services:
-  docker-java:
-    container_name: docker-java
+  maven-build2:
+    container_name: maven-build2
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./docker/maven-build/Dockerfile
+    volumes:
+      - my-data:/src/dist
+    ports:
+      - "8010:8080"
+
+  tomcat-server:
+    container_name: tomcat-server
+    build:
+      context: .
+      dockerfile: docker/tomcat/Dockerfile
     ports:
       - "8020:8080"
       - "9999:9999"
+    volumes:
+      - my-data:/usr/local/tomcat/webapps
+    depends_on:
+      - maven-build2
 
 volumes:
   my-data:
